@@ -6,8 +6,17 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error Name</div>
     <label for="name">Enter name:</label>
     <input type="text" th:field="*{name}" id="name">
+    <br/>
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">error Name</div>
+    <label for="age">Enter age:</label>
+    <input type="text" th:field="*{age}" id="age">
+    <br/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error Name</div>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email">
     <br/>
     <input type="submit" value="Update!">
 </form>
